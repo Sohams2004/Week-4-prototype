@@ -15,7 +15,7 @@ public class FPS_Cam : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        player = GetComponent<Transform>();
+        //player = GetComponent<Transform>();
         cam = GameObject.FindWithTag("MainCamera");
     }
 
@@ -25,10 +25,10 @@ public class FPS_Cam : MonoBehaviour
         float Y_axis = Input.GetAxis("Mouse Y") * mouseSense * 100f * Time.deltaTime;
 
         xRotation -= Y_axis;
-        xRotation = Mathf.Clamp(xRotation, -30f, 30f);
+        xRotation = Mathf.Clamp(xRotation, -30f, 90f);
 
         player.Rotate(Vector3.up, X_axis);
-        player.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 
     private void Update()
