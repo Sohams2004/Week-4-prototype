@@ -10,7 +10,7 @@ public class TriggerButton : MonoBehaviour
     {
         if (other.CompareTag("Cube"))
         {
-            // Trigger the door animation to play
+            
             doorAnimator.SetTrigger("Open");
         }
     }
