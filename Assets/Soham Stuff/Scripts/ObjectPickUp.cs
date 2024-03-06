@@ -32,7 +32,7 @@ public class ObjectPickUp : MonoBehaviour
             Debug.Log("Object detected");
             GameObject hitObj = hit.collider.gameObject;
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 objectRb = hitObj.GetComponent<Rigidbody>();
                 pickableObject = hitObj.gameObject;
@@ -45,11 +45,6 @@ public class ObjectPickUp : MonoBehaviour
         {
             objectRb.constraints = RigidbodyConstraints.None;
         }
-    }
-
-    void ObjectPick()
-    {
-
     }
 
     private void OnDrawGizmos()
