@@ -11,7 +11,9 @@ public class Keypad : MonoBehaviour
     [SerializeField] TextMeshProUGUI numText;
 
     [SerializeField] GameObject keyPad;
-    
+
+    [SerializeField] AudioSource errorSound, correctSound;
+
     public void NumberText(string number)
     {
         numText.text += number;
@@ -26,16 +28,25 @@ public class Keypad : MonoBehaviour
     {
         if (numText.text == password)
         {
+            correctSound.Play();
             numText.text = "Correct";
             yield return new WaitForSeconds(1);
             keyPad.SetActive(false);
         }
 
+        else if (numText.text == string.Empty)
+        {
+            numText.text = "No Input";
+            yield return new WaitForSeconds(1);
+            numText.text = null;
+        }
+
         else if (numText.text != password)
         {
+            errorSound.Play();
             numText.text = "Error";
             yield return new WaitForSeconds(1);
-            numText.text = "";
+            numText.text = null;
         }
     }
 
