@@ -8,7 +8,19 @@ public class TriggerButton : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Cube"))
+        if (other.CompareTag("Object1"))
+        {
+            
+            doorAnimator.SetTrigger("Open");
+        }
+
+        if (other.CompareTag("Object2"))
+        {
+            
+            doorAnimator.SetTrigger("Open");
+        }
+
+        if (other.CompareTag("Object3"))
         {
             
             doorAnimator.SetTrigger("Open");
