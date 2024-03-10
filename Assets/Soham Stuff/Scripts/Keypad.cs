@@ -4,15 +4,21 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Keypad : MonoBehaviour
+public class Keypad : MonoBehaviour 
 {
     [SerializeField] string password;
+
+    [SerializeField] public bool isUnlocked;
 
     [SerializeField] TextMeshProUGUI numText;
 
     [SerializeField] GameObject keyPad;
 
     [SerializeField] AudioSource errorSound, correctSound;
+
+    private void Start()
+    {
+    }
 
     public void NumberText(string number)
     {
@@ -28,6 +34,7 @@ public class Keypad : MonoBehaviour
     {
         if (numText.text == password)
         {
+            isUnlocked = true;
             correctSound.Play();
             numText.text = "Correct";
             yield return new WaitForSeconds(1);
@@ -38,15 +45,15 @@ public class Keypad : MonoBehaviour
         {
             numText.text = "No Input";
             yield return new WaitForSeconds(1);
-            numText.text = null;
+            numText.text = string.Empty;
         }
 
-        else if (numText.text != password)
+        else if (numText.text != password && numText.text != string.Empty)
         {
             errorSound.Play();
             numText.text = "Error";
             yield return new WaitForSeconds(1);
-            numText.text = null;
+            numText.text = string.Empty;
         }
     }
 
@@ -57,7 +64,7 @@ public class Keypad : MonoBehaviour
 
     public void Clear()
     {
-        numText.text = "";
+        numText.text = null;
     }
 
     void CloseKeypad()
