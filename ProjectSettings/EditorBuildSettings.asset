@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Adil new copy.unity
     guid: b9630432d1616754b9f4c3a5734e9236
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 6c8b22f94f54bfb42919c9a1d78aa639
   m_configObjects: {}
