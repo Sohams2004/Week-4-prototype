@@ -7,8 +7,8 @@ public class SceneTransition : MonoBehaviour
     public string targetScene;
 
     private void OnTriggerEnter(Collider other)
-    {
-        
-        SceneManager.LoadScene(targetScene);
+    {     
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.buildIndex + 1);
     }
 }

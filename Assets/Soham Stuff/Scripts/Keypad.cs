@@ -10,11 +10,12 @@ public class Keypad : MonoBehaviour
 
     [SerializeField] public bool isUnlocked;
 
-    [SerializeField] TextMeshProUGUI numText;
+    [SerializeField] public TextMeshProUGUI numText;
 
     [SerializeField] GameObject keyPad;
 
     [SerializeField] AudioSource errorSound, correctSound;
+
 
     private void Start()
     {
@@ -43,6 +44,15 @@ public class Keypad : MonoBehaviour
 
         else if (numText.text == string.Empty)
         {
+            errorSound.Play();
+            numText.text = "No Input";
+            yield return new WaitForSeconds(1);
+            numText.text = string.Empty;
+        }
+
+        else if (numText.text == "No Input")
+        {
+            errorSound.Play();
             numText.text = "No Input";
             yield return new WaitForSeconds(1);
             numText.text = string.Empty;

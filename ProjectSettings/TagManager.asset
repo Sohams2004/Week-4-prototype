@@ -10,6 +10,7 @@ TagManager:
   - Object1
   - Object2
   - Object3
+  - vault door
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Keypad
-  - 
+  - Door
   - 
   - 
   - 
